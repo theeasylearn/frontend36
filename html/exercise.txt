@@ -1,0 +1,16 @@
+1) create web page for IPL points table using table tag. 
+2) create your resume using only html tag.
+https://images.template.net/wp-content/uploads/2018/11/Free-Basic-Resume-Template2.jpg
+3) create forgot passwod page. 
+
+
+4) create a website gujartirecipes.com 
+    1 Home 
+    2 Nasta recipes 
+        4 page 
+    3 Shak recipes
+    4 fastfood recipes
+    5 Athana recipes
+    6 sweets recipes
+    7 mukhvas recipes
+    8 Juice recipes
