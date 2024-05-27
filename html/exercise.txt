@@ -3,7 +3,9 @@
 3) create your resume using only html tag.
 https://images.template.net/wp-content/uploads/2018/11/Free-Basic-Resume-Template2.jpg
 4) create forgot password page. 
-5) create a website gujartirecipes.com 
+5) create change password page. 
+
+) create a website gujartirecipes.com 
     1 Home 
     2 Nasta recipes 
         4 page 
