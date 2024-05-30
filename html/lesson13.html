@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="" method="post">
+        <table border="1" align="center" width="80%" cellpadding="10">
+            <tr>
+                <td><h1>Compose Email</h1></td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="email" name="email" placeholder="email" required>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="text" name="subject" placeholder="subject" required />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Attachement : <br/>
+                    <input type="file" name="attachment" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Message <br>
+                    <textarea rows="12" cols="150" name="message" required></textarea>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="submit" value="Send email">
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>
