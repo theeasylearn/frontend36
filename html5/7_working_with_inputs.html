@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Working with inputs</h1>
+    <hr>
+    <form action="success.html" method="post" enctype="multipart/form-data" >
+        <table border="2" align="center" cellpadding="10" width="60%">
+            <tr>
+                <td width="35%">
+                    <label for="fullname">fullname</label>
+                </td>
+                <td>
+                    <input type="text" name="fullname" id="fullname" placeholder="surname name fathername" required autofocus />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="email">
+                        Email
+                    </label>
+                </td>
+                <td>
+                    <input type="email" name="email" id="email" required>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="mobile">Mobile</label>
+                </td>
+                <td>
+                    <input type="tel" name="mobile" id="mobile" required>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <label for="birthdatetime">
+                        Birth date & time
+                    </label>
+                </td>
+                <td>
+                    <input type="datetime-local" name="birthdatetime" id="birthdatetime" required>
+                </td>
+            </tr>
+           
+            <tr>
+                <td>
+                    <label for="anniversary_date">
+                        Marriage Anniversary date
+                    </label>
+                </td>
+                <td>
+                    <input type="date" name="anniversary_date" id="anniversary_date" max="2024-06-08" />
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="photo">
+                        Select your photo
+                    </label>
+                </td>
+                <td>
+                    <input type="file" name="photo" id="photo" accept="image/*" multiple />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="annual_income">annual income</label>
+                </td>
+                <td>
+                    <input type="number" name="annual_income" id="annual_income" value="0"
+                    min="0" max="50000000">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="weight">Body weight</label>
+                </td>
+                <td>
+                    <input type="number" name="weight" id="weight" step="0.01" min="0" weight="200.00">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="color">favourte color</label>
+                </td>
+                <td>
+                    <input type="color" name="color" id="color" />
+                </td>
+            </tr>
+            <tr>
+                <td>Enter your aadhar card no (9999-9999-9999)</td>
+                <td>
+                    <input type="text" name="aadhardard" id="aadhardard" pattern="[0-9]{12}" />
+                </td>
+            </tr>
+            <tr>
+                <td>Enter your pancard no </td>
+                <td>
+                    <input type="text" name="pancard" id="pancard" 
+                    pattern="[A-Z]{5}[0-9]{4}[A-Z]{1}" />
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" align="center">
+                    <input type="submit" value="register" name="register">
+                    <input type="reset" value="clear all" name="clear">
+                    <input type="button" value="i cant do anything" name="button">
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+
+</html>
