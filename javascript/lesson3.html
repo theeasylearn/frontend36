@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>confirm dialogbox</h1>
+    <hr>
+    <p align="right">
+        <a onclick="return ConfirmPayment();" href="payment.html">Subscribe to our paid content</a>
+    </p>
+
+    <script>
+        //create user defined function 
+        function ConfirmPayment()
+        {
+            let response = confirm('are you sure to want to buy our paid subsription');
+            if(response==true)
+            {
+                alert('we will deduct payment');
+                return true;
+            }
+            else 
+            {
+                alert('never mind, come again');
+                return false;
+            }
+        }
+    </script>
+</body>
+</html>
