@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>prompt, document.write & operators</h1>
+    <hr>
+    <script>
+        var num1 = prompt("Enter first number",0);
+        var num2 = prompt("Enter second number",0);
+
+        num1 = parseInt(num1);
+        num2 = parseInt(num2);
+
+        var add = num1 + num2;
+        var sub = num1 - num2;
+        var mul = num1 * num2;
+        var div = num1 / num2;
+        document.write("addition " ,add," substraction ",sub," multiplication ", mul," division " + div.toFixed(2));
+
+        document.write(`<br/> ${num1} < ${num2} ` + (num1<num2));
+        document.write(`<br/> ${num1} > ${num2} ` + (num1>num2));
+        document.write(`<br/> ${num1} <= ${num2} ` + (num1<=num2));
+        document.write(`<br/> ${num1} >= ${num2} ` + (num1>=num2));
+        document.write(`<br/> ${num1} == ${num2} ` + (num1==num2));
+        document.write(`<br/> ${num1} != ${num2} ` + (num1!=num2));
+        var num3 = 100;
+        var result1 = num1<num2 && num1<num3;
+        var result2 = num1<num2 || num1<num3;
+        document.write(`<br/> ${result1} = ${num1}<${num2} && ${num1}<${num3}`);
+        document.write(`<br/> ${result2} = ${num1}<${num2} || ${num1}<${num3}`);
+
+    </script>
+</body>
+</html>
