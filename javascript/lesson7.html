@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>document.getElementById method</h1>
+    <hr>
+    <table border="1" cellpadding="10" width="100%">
+        <tr>
+            <td id="poem1" width="33.33%"></td>
+            <td id="poem2" width="33.33%" valign="top"></td>
+            <td id="poem3" width="33.33%" valign="top"></td>
+        </tr>
+    </table>
+    <p id="p1"></p>
+    <p id="p2"></p>
+    <p id="p3"></p>
+    <script>
+        var content1 = `
+Twinkle, <b>twinkle</b>, little <font color="red">star</font>,<br>
+How I wonder what you are!<br>
+Up above the world so high,<br>
+Like a diamond in the sky.<br><br>
+
+<b>Twinkle</b>, <b>twinkle</b>, little <font color="red">star</font>,<br>
+How I wonder what you are!<br><br>
+
+When the blazing sun is gone,<br>
+When he nothing shines upon,<br>
+Then you show your little light,<br>
+<b>Twinkle</b>, <b>twinkle</b>, all the night.<br><br>
+
+<b>Twinkle</b>, <b>twinkle</b>, little <font color="red">star</font>,<br>
+How I wonder what you are!<br><br>
+
+Then the traveler in the dark<br>
+Thanks you for your tiny spark;<br>
+He could not see which way to go,<br>
+If you did not <b>twinkle</b> so.<br><br>
+
+<b>Twinkle</b>, <b>twinkle</b>, little <font color="red">star</font>,<br>
+How I wonder what you are!<br><br>
+
+In the dark blue sky you keep,<br>
+And often through my curtains peep,<br>
+For you never shut your eye<br>
+Till the sun is in the sky.<br><br>
+
+<b>Twinkle</b>, <b>twinkle</b>, little <font color="red">star</font>,<br>
+How I wonder what you are!<br><br>
+
+As your bright and tiny spark<br>
+Lights the traveler in the dark,<br>
+Though I know not what you are,<br>
+<b>Twinkle</b>, <b>twinkle</b>, little <font color="red">star</font>.<br><br>
+
+<b>Twinkle</b>, <b>twinkle</b>, little <font color="red">star</font>,<br>
+How I wonder what you are!<br>
+
+`;
+        var content2 = `<font size="5"><b>Happy birthday</b></font> to you,<br>
+<font size="5"><b>Happy birthday</b></font> to you,<br>
+<font size="5"><b>Happy birthday</b></font> dear [Name],<br>
+<font size="5"><b>Happy birthday</b></font> to you.<br><br>
+
+From good friends and true,<br>
+From old friends and new,<br>
+May good luck go with you,<br>
+And happiness too.<br>
+
+`;
+        var content3 = `Baa baa black sheep,
+                        Have you any wool?
+                        Yes sir, yes sir,
+                        Three bags full.
+
+                        One for the master,
+                        And one for the dame,
+                        And one for the little boy
+                        Who lives down the lane.
+
+                        Baa baa black sheep,
+                        Have you any wool?
+                        Yes sir, yes sir,
+                        Three bags full.`;
+
+        //store 1st poem into 1st td tag 
+        document.getElementById('poem1').innerHTML = content1;
+        document.getElementById('poem2').innerText = content2;
+        document.getElementById('poem3').innerHTML = content3;
+
+        document.getElementById('p1').innerHTML =  document.getElementById('poem3').innerHTML 
+        document.getElementById('p2').innerHTML =    document.getElementById('poem1').innerHTML
+    </script>
+</body>
+
+</html>
