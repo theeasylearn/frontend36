@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>working with value property</h1>
+    <hr>
+    <form action="">
+        <table border="1" align="center" width="50%" cellpadding="10">
+            <tr>
+                <td>
+                    <input type="number" placeholder="enter first number" id="num1" required/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="number" placeholder="enter second number" id="num2" required />
+                </td>
+            </tr>
+            <tr>
+                <td align="center">
+                    <input type="button" value="do calculation" onclick="calculate();" />
+                </td>
+            </tr>
+            <tr>
+                <td id="td1"></td>
+            </tr>
+            <tr>
+                <td id="td2"></td>
+            </tr>
+            <tr>
+                <td id="td3"></td>
+            </tr>
+            <tr>
+                <td id="td4"></td>
+            </tr>
+        </table>
+    </form>
+    <script>
+        function calculate()
+        {
+            // alert("Button Clicked...");
+            let num1 = document.getElementById('num1').value;
+            let num2 = document.getElementById('num2').value;
+            console.log(num1,num2);
+            if(num1 === "")
+            {
+                alert('please give numeric input in first number');
+                document.getElementById('num1').focus();
+            }
+            else if(num2 === "")
+            {
+                alert('please give numeric input in second number');
+                document.getElementById('num2').focus();
+            }
+            else 
+            {
+                //convert input into integer
+                num1 = parseInt(num1);
+                num2 = parseInt(num2);
+                let add = num1 + num2;
+                let sub = num1 - num2;
+                let mul = num1 * num2;
+                let div = num1 / num2;
+                document.getElementById('td1').innerHTML = add;
+                document.getElementById('td2').innerHTML = sub;
+                document.getElementById('td3').innerHTML = mul;
+                document.getElementById('td4').innerHTML = div;
+            }
+        }
+    </script>
+</body>
+</html>
