@@ -1,79 +1,99 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
     <h1>loop in javascript</h1>
     <h3>multiplication table generator</h3>
-    <form action="">
+    <form action="" onsubmit="return GenerateTable();">
         <table border="1" border="1" cellpadding="5" width="100%">
             <tr>
                 <td width="20%">
                     <select name="multiplier" id="multiplier" required />
-                        
+
                     </select>
                 </td>
                 <td width="25%">
                     <label for="while">
-                            <input type="radio" name="loop" value="1" id="while" required />While
+                        <input type="radio" name="loop" value="1" id="while" required />While
                     </label>
                 </td>
                 <td width="25%">
                     <label for="for">
-                            <input type="radio" name="loop" value="2" id="for" required /> for
+                        <input type="radio" name="loop" value="2" id="for" required /> for
                     </label>
                 </td>
                 <td width="25%">
                     <label for="dowhile">
-                            <input type="radio" name="loop" value="3" id="dowhile" required />
-                            do while
+                        <input type="radio" name="loop" value="3" id="dowhile" required />
+                        do while
                     </label>
                 </td>
                 <td width="5%">
-                    <input type="submit" name="submit" value="Generate Table">
+                    <input type="submit" name="submit" value="Generate Table" />
                 </td>
             </tr>
         </table>
-
         <hr />
-        <table border="1" align="center" cellpadding="5">
-            <tr>
-                <td>10</td>
-                <td>x</td>
-                <td>1</td>
-                <td>=</td>
-                <td>10</td>
-            </tr>
-            <tr>
-                <td>10</td>
-                <td>x</td>
-                <td>1</td>
-                <td>=</td>
-                <td>10</td>
-            </tr>
-            <tr>
-                <td>10</td>
-                <td>x</td>
-                <td>1</td>
-                <td>=</td>
-                <td>10</td>
-            </tr>
+        <table border="1" align="center" cellpadding="5" id="output">
+
         </table>
     </form>
     <script>
         //store reference of html tag whose id is multiplier.
         var multiplier = document.getElementById('multiplier');
+        var output = document.getElementById('output');
         multiplier.innerHTML = '<option value="">select</option>';
-        var count=1;
-        while(count<=100)
-        {
+        var count = 1;
+        while (count <= 100) {
             multiplier.innerHTML += `<option value=${count}>${count}</option>`;
-            count=count+1;
+            count = count + 1;
         }
-       
+
+        //user defined function
+        function GenerateTable() {
+            //get selected radio button value
+            let loop = document.querySelector("input[name='loop']:checked").value;
+            console.log(loop, multiplier.value);
+            if (loop === '1') {
+                let count = 1;
+                output.innerHTML = ''; //clear old output;
+                while (count <= 10) {
+                    let result = parseInt(multiplier.value) * count;
+                    output.innerHTML += ` <tr>
+                    <td>${multiplier.value}</td>
+                    <td>x</td>
+                    <td>${count}</td>
+                    <td>=</td>
+                    <td>${result}</td>
+                </tr>`;
+                    count++;
+                }
+            }
+            else if (loop === '2') {
+
+                for(let count=1;count<=10;count++)
+                {
+                    let result = parseInt(multiplier.value) * count;
+                    output.innerHTML += ` <tr>
+                    <td>${multiplier.value}</td>
+                    <td>x</td>
+                    <td>${count}</td>
+                    <td>=</td>
+                    <td>${result}</td>
+                </tr>`;
+                }
+            }
+
+            return false;
+
+        }
     </script>
 </body>
+
 </html>
