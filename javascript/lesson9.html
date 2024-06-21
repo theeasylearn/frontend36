@@ -44,11 +44,12 @@
 
         </table>
     </form>
+    <script src="common.js"></script>
     <script>
         //store reference of html tag whose id is multiplier.
-        var multiplier = document.getElementById('multiplier');
-        var output = document.getElementById('output');
-        multiplier.innerHTML = '<option value="">select</option>';
+        var multiplier = $('multiplier');
+        var output = $('output');
+        $$('multiplier','<option value="">select</option>');
         var count = 1;
         while (count <= 100) {
             multiplier.innerHTML += `<option value=${count}>${count}</option>`;

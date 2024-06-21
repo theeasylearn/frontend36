@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Resuable functions</h1>
+    <hr/>
+    <table border="1" cellpadding="10" align="center" width="50%">
+        <tr>
+            <td>
+                <input type="button" value="get date" onclick="showCurrentDate();" />
+            </td>
+            <td>
+                <input type="button" value="get time" onclick="showCurrentTime();" />
+            </td>
+        </tr>
+        <tr>
+            <td id="date"></td>
+            <td id="time"></td>
+        </tr>
+        
+    </table>
+    <script src="common.js"></script>
+    <script>
+       
+        function showCurrentDate()
+        {
+            let fulldate = getCurrentDate();
+            $$('date',fulldate);
+        }
+        function showCurrentTime()
+        {
+            let fulltime = getCurrentTime();
+            $$('time',fulltime);
+        }
+    </script>
+</body>
+</html>
