@@ -5,3 +5,10 @@
 4) write a program to calculate area of triangle from given base and height. base and height should be taken as input from user using html. calculate and display area when user click on button.
 
 5) write a program to calculate simple interest from given amount, rate, and year. input should be taken as using html. calculate and display interest when user click on button
+
+6) Develop EMI Calculator in javascript. take neccesary input from user using html.
+
+7) Develop BMI Calculator in javascript. take neccesary input from user using html.
+
+8) create javascript page. that will display given month calender.
+https://i.pinimg.com/736x/76/24/df/7624dfe0359710f9665e0a5765ca78ff.jpg
