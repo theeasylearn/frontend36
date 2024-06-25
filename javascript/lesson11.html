@@ -33,24 +33,37 @@
         var cal = $('calendar');
         var content = '';
         let count = 1;
-        let date = new Date(2024,6,0);
+        let date = new Date(2024,2,0);
         let lastDate = date.getDate(); //get last day of month;
         
-        date = new Date(2024,6-1,1);
+        date = new Date(2024,2-1,1);
         let firstDay = date.getDay();
-        alert(firstDay);
+        let emptyCount = 0; //count empty td tags
+        let isFirstRow = true; //used to decide it it first row
+        //alert(firstDay);
         while (count <= lastDate) {
             content += `<tr>`;
             let temp = '';
+            //below loop print empty td tags
+            while(isFirstRow=== true && emptyCount<firstDay)
+            {
+                temp+=`<td></td>`;
+                emptyCount=emptyCount+1;
+            }
+
             let column = 1;
-            while (column <= 7 && count <= lastDate) {
+            if(isFirstRow === true)
+            {
+                column = firstDay + 1;
+                isFirstRow = false;
+            }
+            while (column <=7 && count <= lastDate) {
                 temp += `<td>${count}</td>`;
                 column++;
                 count++;
             }
             content += temp + `</tr>`;
         }
-
         // cal.innerHTML = content;
         $$('calendar', content);
     </script>
