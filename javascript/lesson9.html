@@ -43,6 +43,12 @@
         <table border="1" align="center" cellpadding="5" id="output">
 
         </table>
+        <h2>Previous table</h2>
+        <hr>
+
+        <table border="1" align="center" cellpadding="5" id="output2">
+        
+        </table>
     </form>
     <script src="common.js"></script>
     <script>
@@ -61,9 +67,14 @@
             //get selected radio button value
             let loop = document.querySelector("input[name='loop']:checked").value;
             console.log(loop, multiplier.value);
+            // output.innerHTML = ''; //clear old output;
+            
+            let previousOutput = $$('output');
+            $$('output2',previousOutput);
+            $$('output',''); //clear old output;
+
             if (loop === '1') {
                 let count = 1;
-                output.innerHTML = ''; //clear old output;
                 while (count <= 10) {
                     let result = parseInt(multiplier.value) * count;
                     output.innerHTML += ` <tr>
