@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Event Handling using 1st technique</h1>
+    <hr>
+    <table align="center">
+        <tr>
+            <td align="center">
+                <input type="button" value="Zoom In" id="zoomin" onclick="zoomInOut(this.id);" />
+            </td>
+
+            <td>
+                <input type="button" value="restore" id="restore" onclick="zoomInOut(this.id);" />
+            </td>
+            <td align="center">
+                <input type="button" value="Zoom Out" id="zoomout" onclick="zoomInOut(this.id);" />
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" align="center">
+                <img id="photo" src="https://picsum.photos/300" alt="" />
+            </td>
+        </tr>
+    </table>
+    <script>
+        var photo = document.getElementById('photo');
+        //create function
+        let zoomInOut = function (buttonId) {
+            let height = photo.offsetHeight;
+            let width = photo.offsetWidth;
+            if (buttonId == 'zoomin') {
+                height = parseInt(height * 1.10);
+                width = parseInt(width * 1.10);
+            }
+            else if (buttonId == 'zoomout') {
+                height = parseInt(height * 0.90);
+                width = parseInt(width * 0.90);
+            }
+            console.log(buttonId, height, width);
+            photo.style.height = height + 'px';
+            photo.style.width = width + 'px';
+        }
+    </script>
+</body>
+
+</html>

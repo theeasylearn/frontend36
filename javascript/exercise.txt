@@ -12,3 +12,9 @@
 
 8) create javascript page. that will display given month calender.
 https://i.pinimg.com/736x/76/24/df/7624dfe0359710f9665e0a5765ca78ff.jpg
+
+
+9) create javascript page that has two button. one to show table and another to hide table. table should display cricket score. 
+
+
+10) create javascript page that has two button. one to to increase fontsize by 2 px and another to decrease fontsize by 2px of paragraph tag. make sure font size is never less then 10px and never greater then 50px
