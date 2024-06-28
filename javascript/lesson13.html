@@ -1,10 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        input {
+            height: 100px;
+            width: 100px;
+            font-size: 72px;
+        }
+    </style>
 </head>
+
 <body>
     <h1>Tic Tac</h1>
     <hr>
@@ -25,5 +34,25 @@
             <td><input type="button" value=" - "></td>
         </tr>
     </table>
+
+    <script>
+        //create an array/list that has reference of all input tag
+        var buttons = document.getElementsByTagName('input');
+        console.log(buttons);
+        var label = 'X';
+        for(let position=0;position<9;position++)
+        {
+            buttons[position].onclick = function () {
+                //alert('button clicked....');
+                this.value = label;
+                if(label === 'X')
+                    label = '0';
+                else
+                    label = 'X';
+                this.onclick = null;
+            }
+        }
+    </script>
 </body>
+
 </html>
