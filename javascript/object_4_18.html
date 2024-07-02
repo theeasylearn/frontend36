@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>second method to create object</h1>
+    <script>
+        //2nd method create object
+        var Player = new Object({
+            //create property variable
+            name: '',
+            age: 0,
+            runs: 0,
+            match: 0,
+            average: 0.0,
+            display:function()
+            {
+                
+            }
+        });
+        //create object-variable using Player template
+        var p1 = Player;
+        console.log(p1.name, p1.age, p1.runs, p1.match, p1.average);
+        p1.name = 'Virat Kohli';
+        p1.age = 34;
+        p1.runs = 25000;
+        p1.match = 350;
+        p1.average = p1.runs / p1.match;
+        console.log(p1.name, p1.age, p1.runs, p1.match, p1.average);
+
+        var p2 = Player;
+        p2.name = 'Rohit Sharma';
+        p2.age = 36;
+        p2.runs = 18000;
+        p2.match = 300;
+        p2.average = p2.runs / p2.match;
+         console.log(p2.name, p2.age, p2.runs, p2.match, p2.average);
+    </script>
+</body>
+
+</html>

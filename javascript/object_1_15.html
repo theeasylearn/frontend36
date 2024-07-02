@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>first method to create object</h1>
+    <hr>
+
+    <script>
+        //create object using 1st method
+        let student  = {
+            //property/instance variables
+            name:"Priya",
+            surname:"Chopra",
+            age:25,
+            gender:false,
+            display:function()
+            {
+                console.log(this.name,this.surname,this.age,this.gender);
+            }
+        }
+        student.display();
+        console.log(student.name,student.age,student.surname,student.gender);
+    </script>
+</body>
+</html>

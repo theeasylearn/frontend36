@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>first method to create object</h1>
+    <table border="1" align="center" cellpadding="10">
+        <thead>
+            <tr>
+                <th>Sr No</th>
+                <th>Surname</th>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Gender</th>
+            </tr>
+        </thead>
+        <tbody id="output">
+
+        </tbody>
+    </table>
+
+    <script>
+        //create object using 1st method
+        var student1 = { name: "Priya", surname: "Chopra", age: 25, gender: false };
+        var student2 = { name: "Monika", surname: "Mehga", age: 27, gender: false };
+        var student3 = { name: "Hitesh", surname: "Patel", age: 29, gender: true };
+        var output = document.getElementById('output');
+
+        var srno = 1;
+        function addRow(s) {
+            let temp = null;
+            if (s.gender === true)
+                temp = 'Male';
+            else
+                temp = 'Female';
+
+            let content = ` <tr>
+                <td>${srno}</td>
+                <td>${s.name}</td>
+                <td>${s.surname}</td>
+                <td>${s.age}</td>
+                <td>${temp}</td>
+            </tr>`;
+            output.innerHTML += content;
+            srno = srno + 1;
+        }
+        addRow(student1); //calling function/run
+        addRow(student2); //calling function/run
+        addRow(student3); //calling function/run
+    </script>
+</body>
+
+</html>
