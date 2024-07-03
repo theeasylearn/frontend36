@@ -9,7 +9,15 @@
 
 <body>
     <h1>second method to create object</h1>
+    <hr>
+    <table width="100%" border="1" cellpadding="5">
+        <tr id="output">
+
+
+        </tr>
+    </table>
     <script>
+        var output = document.getElementById('output'); //global variable
         //2nd method create object
         var Player = new Object({
             //create property variable
@@ -18,9 +26,19 @@
             runs: 0,
             match: 0,
             average: 0.0,
-            display:function()
-            {
-                
+            display: function () {
+                //object destructring
+                let {name,age,runs,match,average} = this;
+                let content = `<td>
+                <ul>
+                    <li>Name ${name}</li>
+                    <li>Age ${age}</li>
+                    <li>Run ${runs}</li>
+                    <li>Match ${match}</li>
+                    <li>Average ${average}</li>
+                </ul>
+            </td>`;
+            output.innerHTML += content;
             }
         });
         //create object-variable using Player template
@@ -32,6 +50,7 @@
         p1.match = 350;
         p1.average = p1.runs / p1.match;
         console.log(p1.name, p1.age, p1.runs, p1.match, p1.average);
+        p1.display();
 
         var p2 = Player;
         p2.name = 'Rohit Sharma';
@@ -39,7 +58,8 @@
         p2.runs = 18000;
         p2.match = 300;
         p2.average = p2.runs / p2.match;
-         console.log(p2.name, p2.age, p2.runs, p2.match, p2.average);
+        console.log(p2.name, p2.age, p2.runs, p2.match, p2.average);
+        p2.display();
     </script>
 </body>
 

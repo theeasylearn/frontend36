@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>3rd technique to create object</h1>
+    <hr>
+    <table border="2" align="center" cellpadding="10" width="100%">
+        <thead>
+            <tr>
+                <td>Srno</td>
+                <td>Name</td>
+                <td>Price</td>
+                <td>Quantity</td>
+                <td>Total</td>
+            </tr>
+        </thead>
+        <tbody id="output">
+
+        </tbody>
+    </table>
+    <script>
+        var output = document.getElementById('output');
+        var srno = 1;
+        //create template function
+        function Product(name, price, quantity) {
+            //create property variable
+            this.name = name,
+                this.price = price,
+                this.quantity = quantity,
+                this.addRow = function () {
+                    let { name, price, quantity } = this;
+                    console.log(name, price, quantity);
+                    let content = ` <tr>
+                    <td>${srno}</td>
+                    <td>${name}</td>
+                    <td>${price}</td>
+                    <td>${quantity}</td>
+                    <td>${price * quantity}</td>
+                    </tr>`;
+                    output.innerHTML += content;
+                }
+        }
+
+        //create object 
+        //syntax 
+        //let object = new template()
+        let p1 = new Product('soap', 50, 4);
+        let p2 = new Product('Perfume', 500, 1);
+        p1.addRow();
+        p2.addRow();
+    </script>
+</body>
+
+</html>
