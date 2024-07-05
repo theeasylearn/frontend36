@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>ES6 way to create object (4th technique)</h1>
+    <table border="1" cellpadding="10" align="center" width="80%">
+        <thead>
+            <tr>
+                <td>Srno</td>
+                <td>Name</td>
+                <td>Mobile</td>
+                <td>Seat count</td>
+                <td>Seat No</td>
+                <td>Total</td>
+            </tr>
+        </thead>
+        <tbody id="output">
+           
+        </tbody>
+    </table>
+    <script>
+        //create constant
+        const TICKET_PRICE = 100;
+        var output = document.getElementById('output');
+        var srno=1;
+        class Ticket {
+            constructor(name, mobile, seatno) {
+                this.name = name;
+                this.mobile = mobile;
+                this.seatno = seatno;
+                let arr = this.seatno.split(',');
+                // console.log(this.seatno, arr.length);
+                this.count = arr.length;
+                this.total = arr.length * TICKET_PRICE;
+            }
+            addRow() {
+                console.log(this);
+                let content = ` <tr>
+                <td>${srno++}</td>
+                <td>${this.name}</td>
+                <td>${this.mobile}</td>
+                <td>${this.count}</td>
+                <td>${this.seatno}</td>
+                <td>${this.total}</td>
+            </tr>`;
+                output.innerHTML += content;
+            }
+        }
+        //create object 
+        var t1 = new Ticket('Rahul chauhan', '9876543210', '1,2');
+        t1.addRow();
+
+        var t2 = new Ticket('bhagirath bhatt', '8796541230', '3');
+        t2.addRow();
+
+        var t3 = new Ticket('divya chauhan', '9876543210', '10,11,12,23');
+        t3.addRow();
+
+        
+    </script>
+</body>
+
+</html>
