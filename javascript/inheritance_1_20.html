@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Single level inheritance</h1>
+    <hr>
+    <script>
+        class KB 
+        {
+            constructor(bytes)
+            {
+                this.bytes = bytes;
+            }
+            getKB()
+            {
+                let temp = this.bytes / 1024;
+                return temp;
+            }
+        }
+        class MB extends KB
+        {
+            constructor(bytes)
+            {
+                super(bytes);
+            }
+            getMB()
+            {
+                let temp = super.getKB();
+                temp = temp/1024;
+                return temp;
+            }
+        }
+        let bytes  = parseInt(prompt("Enter bytes", 0));
+        //create object of MB class
+        let m1 = new MB(bytes);
+        let kilobytes = m1.getKB();
+        let megabytes = m1.getMB();
+
+        console.log("Kb = " + kilobytes);
+        console.log("Mb = " + megabytes);
+
+    </script>
+</body>
+</html>
