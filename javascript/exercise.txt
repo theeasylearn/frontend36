@@ -23,3 +23,11 @@ https://i.pinimg.com/736x/76/24/df/7624dfe0359710f9665e0a5765ca78ff.jpg
 
 12) in tic tac game change code in way one player play against computer. 
 
+13) create class KG which return Kilogram of grams given in constructor and it has method getKG which return KG. extends this class in Ton. which has method getTon that returns ton of grams given in constructor.
+
+14) extend Ton create MegaTon class it has method getMegaTon which return Megaton of grams passed in constructor.
+
+15) create class gb which extends mb class. it should have method getGB() which return GB of given bytes. 
+
+16) create class tb which extends gb class. it should have method getTB() which return TB of given bytes. 
+

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Multilevel inheritance</h1>
+    <hr>
+    <script>
+        //es6 class
+        class Foot {
+            constructor(inches) {
+                this.inches = inches;
+                console.log('foot class constructor is called');
+            }
+            getFoot() {
+                //create local variable
+                let temp = this.inches / 12;
+                return temp;
+            }
+        }
+        //derived class
+        class Meter extends Foot {
+            constructor(inches) {
+                super(inches); //calling parent Foot constructor
+                console.log('Meter class constructor is called');
+            }
+            getMeter() {
+                let meter = super.getFoot() / 3.28;
+                return meter;
+            }
+        }
+        class KM extends Meter {
+            constructor(inches) {
+                super(inches); //calling meter constructor
+                console.log('KM class constructor is called');
+            }
+            getKM()
+            {
+                let temp = super.getMeter() / 1000;
+                return temp;
+            }
+        }
+    
+        let inches = parseInt(prompt("Enter inches",0));
+        let k1 = new KM(inches); //calling KM class constructor
+        let temp = k1.getFoot();
+        let temp2 = k1.getMeter();
+        let temp3 = k1.getKM();
+        console.log("foot " + temp);
+        console.log("meter " + temp2);
+        console.log("kilometer " + temp3);
+    </script>
+</body>
+
+</html>
