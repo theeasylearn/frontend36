@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Hybrid inheritance</h1>
+    <hr>
+    <script>
+        class MyMath {
+            getPi() {
+                let pi = 3.14;
+                return pi;
+            }
+            getSquare(number) {
+                //local variable
+                let square = number * number;
+                return square;
+            }
+        }
+        class Circle extends MyMath {
+            constructor(radius) {
+                super();
+                //property variable
+                this.radius = radius;
+            }
+            getArea() {
+                //local variable
+                let area = super.getPi() * super.getSquare(this.radius);
+                return area;
+            }
+        }
+
+        class Cyliender extends MyMath {
+            constructor(radius, height) {
+                super();
+                this.radius = radius;
+                this.height = height;
+            }
+            getArea() {
+                let area = (2 * super.getPi() * this.radius * this.height) + (2 * super.getPi() * super.getSquare(this.radius));
+                return area;
+            }
+        }
+        class Sphere extends Circle 
+        {
+            constructor(radius)
+            {
+                super(radius);
+            }
+            getSurfaceArea()
+            {
+                let temp = 4 * super.getArea();
+                return temp;
+            }
+        }
+        let radius = parseInt(prompt("Enter radius", 0));
+        
+        let s1 = new Sphere(radius);
+        console.log("Sphere area = ", s1.getSurfaceArea());
+    </script>
+</body>
+
+</html>

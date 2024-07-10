@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Array/List</h1>
+    <hr>
+    <script>
+        //create empty list 
+        let fruits = [];
+
+        //create list which has few values 
+        let vegies = ['Potato', 'Tomatato', 'lady finger', 'Cabbage', 'white potato'];
+        //display list
+        console.log(vegies);
+
+        //display 1st value
+        console.log(vegies[0]); //first value's position is 0
+        console.log(vegies[1]); //second value's position is 1
+        console.log(vegies[2]); //third value's position is 2
+        console.log(vegies[4]); //last value's position is always size - 1
+
+        //change value
+        vegies[0] = 'Big potato';
+        vegies[1] = 'Yellow Tomatato';
+
+        //display 1st value
+        console.log(vegies[0]); //first value's position is 0
+        console.log(vegies[1]); //second value's position is 1
+
+        //add new value 
+        vegies.push('chik peas');
+        vegies.push('abc');
+           console.log(vegies);
+    </script>
+</body>
+
+</html>

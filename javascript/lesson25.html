@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>3rd technique to create object</h1>
+    <hr>
+    <table border="2" width="100%" cellpadding="5" >
+        <tr>
+            <td width="20%" valign="top">
+               <form action="post" onsubmit="return addProduct();">
+                    <table border="1" width="100%" cellpadding="10">
+                        <tr>
+                            <td>
+                                <h3>Add new product</h3>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="text" name="p_name" id="p_name" placeholder="Product Name" required />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="number" name="p_price" id="p_price" placeholder="Product Price" required />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="number" name="p_quantity" id="p_quantity" placeholder="Product Quantity" required />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="center">
+                                <input type="submit" name="submit" id="submit" value="Save" />
+                                <input type="reset" name="reset" id="reset" value="Clear all" />
+                            </td>
+                        </tr>
+                    </table>
+               </form>
+            </td>
+            <td valign="top">
+                <table border="2" align="center" cellpadding="10" width="100%">
+                    <thead>
+                        <tr>
+                            <td>Srno</td>
+                            <td>Name</td>
+                            <td>Price</td>
+                            <td>Quantity</td>
+                            <td align='right'>Total</td>
+                        </tr>
+                    </thead>
+                    <tbody id="output">
+                
+                    </tbody>
+                    <tfooter>
+                        <tr>
+                            <td colspan="3"><b>summery</b></td>
+                            <td><b>Nos <span id="nos">0</span></b> </td>
+                            <td align='right'><b>Total <span id="total">0</span></b></td>
+                        </tr>
+                    </tfooter>
+                </table>
+            </td>
+        </tr>
+    </table>
+    <script>
+        var output = document.getElementById('output');
+        
+        var p_pname = document.getElementById('p_name');
+        var p_price = document.getElementById('p_price');
+        var p_quantity = document.getElementById('p_quantity');
+        var nos = document.getElementById('nos');
+        var total = document.getElementById('total');
+        var GrandTotal = 0;
+        var srno = 1;
+        //create template function
+        function Product(name, price, quantity) {
+            //create property variable
+            this.name = name,
+                this.price = price,
+                this.quantity = quantity,
+                this.addRow = function () {
+                    let { name, price, quantity } = this;
+                    console.log(name, price, quantity);
+                    let content = ` <tr>
+                    <td>${srno++}</td>
+                    <td>${name}</td>
+                    <td>${price}</td>
+                    <td>${quantity}</td>
+                    <td align='right'>${price * quantity}</td>
+                    </tr>`;
+                    output.innerHTML += content;
+                    GrandTotal += (price * quantity);
+                    total.innerHTML = GrandTotal;
+                }
+        }
+
+        let addProduct = function()
+        {
+            //alert("hi");
+            console.log(p_name.value,p_price.value,p_quantity.value);
+            let p1 = new Product(p_name.value, p_price.value, p_quantity.value);
+            // p1.addRow();
+            // let addRow = p1.addRow; //wrong way of creating alias
+            //syntax
+            // let alias = object.function.bind(object)
+            let addRow = p1.addRow.bind(p1);
+            addRow();
+            p_pname.value = "";
+            p_price.value = "";
+            p_quantity.value = "";
+            return false;
+        }
+    </script>
+</body>
+
+</html>

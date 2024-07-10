@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>working with object</h1>
+    <script>
+        let user = {}; //empty object
+        console.log(user);
+        user.name = "The easylearn academy";
+        user.city = "Bhavnagar";
+
+        console.log(user);
+        if (user.name === undefined) //name does not exist in user
+            document.write('<h2>name does not exist in user</h2>');
+        else
+            document.write('<h2>name exist in user</h2>');
+
+        if (user.email === undefined) //email does not exist in user
+            document.write('<h2>email does not exist in user</h2>');
+        else
+            document.write('<h2>email exist in user</h2>');
+
+
+        if ("mobile" in user)
+            document.write('<h2>mobile exist in user</h2>');
+        else
+            document.write('<h2>mobile does not exist in user</h2>');
+
+        if ("name" in user)
+            document.write('<h2>name exist in user</h2>');
+        else
+            document.write('<h2>name does not exist in user</h2>');
+    </script>
+</body>
+
+</html>
