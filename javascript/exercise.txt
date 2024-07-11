@@ -31,3 +31,7 @@ https://i.pinimg.com/736x/76/24/df/7624dfe0359710f9665e0a5765ca78ff.jpg
 
 16) create class tb which extends gb class. it should have method getTB() which return TB of given bytes. 
 
+17) create an array which has 20 random integer values. which can be positive or negative. count how many negative & positive values in array using map function.
+
+18) create an array which has 20 random indian names, names should ends with bhai or ben or ba or khan or sinh or kumar or gauri. count how many male and female are there in array using map function. 
+

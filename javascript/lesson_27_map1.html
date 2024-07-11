@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Example of map function</h1>
+    <hr>
+    <script>
+        //create an array
+        let numbers = [10,20,30,40,50,60];
+        var sum = 0;
+        //findout qube of each and every numbers in array
+        let qubes = numbers.map(function(item){
+            console.log(item);
+            sum += item;
+            return item * item * item;
+        });
+        var arverage = sum / numbers.length;
+        console.log("Qubes ",qubes," sum = ",sum," Average=" + arverage);
+    </script>
+</body>
+</html>

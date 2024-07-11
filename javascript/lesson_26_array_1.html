@@ -33,10 +33,31 @@
         console.log(vegies[0]); //first value's position is 0
         console.log(vegies[1]); //second value's position is 1
 
-        //add new value 
+        //add new value at last
         vegies.push('chik peas');
         vegies.push('abc');
-           console.log(vegies);
+        console.log(vegies);
+
+        //add new value at the begining
+        vegies.unshift('aaa');
+        console.log(vegies);
+
+        //let us remove value from an array
+        //remove 1st item 
+        vegies.splice(0,1); //1st is argument is position, 2nd argument count(how many values should be removed)
+         console.log(vegies);
+
+         //now remove 2 items from begining
+         vegies.splice(0,2);
+         console.log(vegies);
+
+         //get the size of array/list
+         let size = vegies.length;
+         console.log("array has ",size," items");
+
+         let things = [12,29.12,true,"Orange"];
+         console.log(things);
+         
     </script>
 </body>
 
