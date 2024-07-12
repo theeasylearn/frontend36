@@ -1,53 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
     <h1>Example of map function</h1>
     <hr>
     <table id="output" align="center" width="90%" border="1" cellpadding="10">
-       
+
     </table>
     <script>
         var countries = [
-                { name: "Germany", flag: "https://flagpedia.net/data/flags/w580/de.png" },
-                { name: "United Kingdom", flag: "https://flagpedia.net/data/flags/w580/gb.png" },
-                { name: "France", flag: "https://flagpedia.net/data/flags/w580/fr.png" },
-                { name: "Italy", flag: "https://flagpedia.net/data/flags/w580/it.png" },
-                { name: "Spain", flag: "https://flagpedia.net/data/flags/w580/es.png" },
-                { name: "Netherlands", flag: "https://flagpedia.net/data/flags/w580/nl.png" },
-                { name: "Belgium", flag: "https://flagpedia.net/data/flags/w580/be.png" },
-                { name: "Switzerland", flag: "https://flagpedia.net/data/flags/w580/ch.png" },
-                { name: "Austria", flag: "https://flagpedia.net/data/flags/w580/at.png" },
-                { name: "Portugal", flag: "https://flagpedia.net/data/flags/w580/pt.png" },
-                { name: "Sweden", flag: "https://flagpedia.net/data/flags/w580/se.png" },
-                { name: "Norway", flag: "https://flagpedia.net/data/flags/w580/no.png" },
-                { name: "Denmark", flag: "https://flagpedia.net/data/flags/w580/dk.png" },
-                { name: "Finland", flag: "https://flagpedia.net/data/flags/w580/fi.png" },
-                { name: "Greece", flag: "https://flagpedia.net/data/flags/w580/gr.png" },
-                { name: "Poland", flag: "https://flagpedia.net/data/flags/w580/pl.png" },
-                { name: "Czech Republic", flag: "https://flagpedia.net/data/flags/w580/cz.png" },
-                { name: "Hungary", flag: "https://flagpedia.net/data/flags/w580/hu.png" },
-                { name: "Ireland", flag: "https://flagpedia.net/data/flags/w580/ie.png" },
-                { name: "Slovakia", flag: "https://flagpedia.net/data/flags/w580/sk.png" }
-            ];
-            console.log(countries);
+            { name: "Germany", flag: "https://flagpedia.net/data/flags/w580/de.png" },
+            { name: "United Kingdom", flag: "https://flagpedia.net/data/flags/w580/gb.png" },
+            { name: "France", flag: "https://flagpedia.net/data/flags/w580/fr.png" },
+            { name: "Italy", flag: "https://flagpedia.net/data/flags/w580/it.png" },
+            { name: "Spain", flag: "https://flagpedia.net/data/flags/w580/es.png" },
+            { name: "Netherlands", flag: "https://flagpedia.net/data/flags/w580/nl.png" },
+            { name: "Belgium", flag: "https://flagpedia.net/data/flags/w580/be.png" },
+            { name: "Switzerland", flag: "https://flagpedia.net/data/flags/w580/ch.png" },
+            { name: "Austria", flag: "https://flagpedia.net/data/flags/w580/at.png" },
+            { name: "Portugal", flag: "https://flagpedia.net/data/flags/w580/pt.png" },
+            { name: "Sweden", flag: "https://flagpedia.net/data/flags/w580/se.png" },
+            { name: "Norway", flag: "https://flagpedia.net/data/flags/w580/no.png" },
+            { name: "Denmark", flag: "https://flagpedia.net/data/flags/w580/dk.png" },
+            { name: "Finland", flag: "https://flagpedia.net/data/flags/w580/fi.png" },
+            { name: "Greece", flag: "https://flagpedia.net/data/flags/w580/gr.png" },
+            { name: "Poland", flag: "https://flagpedia.net/data/flags/w580/pl.png" },
+            { name: "Czech Republic", flag: "https://flagpedia.net/data/flags/w580/cz.png" },
+            { name: "Hungary", flag: "https://flagpedia.net/data/flags/w580/hu.png" },
+            { name: "Ireland", flag: "https://flagpedia.net/data/flags/w580/ie.png" },
+            { name: "Slovakia", flag: "https://flagpedia.net/data/flags/w580/sk.png" }
+        ];
+        console.log(countries);
         var output = document.getElementById('output');
-       
-        countries.map(function(country){
-            console.log(country);
-            let content = ` <tr>
-            <td align=center>
-                <h3>${country.name}</h3>
-                <img src=${country.flag} alt="">
-            </td>
-         
-        </tr>`;
-            output.innerHTML += content;
+        //global variable 
+        var count = 1;
+        var content = '';
+        countries.map(function (country) {
+            content += `<td align=center>
+                    <h3>${country.name} ${count}</h3>
+                    <img width='330px' src=${country.flag} alt="">
+                </td>`;
+            if (count % 3 == 0) {
+                content = '<tr>' + content + '</tr>';
+                output.innerHTML += content;
+                content = '';
+            }
+            count++;
         });
+        if (content != '') {
+            content = '<tr>' + content + '</tr>';
+            output.innerHTML += content;
+        }
     </script>
 </body>
+
 </html>
