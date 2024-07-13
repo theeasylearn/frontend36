@@ -33,7 +33,7 @@
             </tr>
         </table>
     </form>
-    <table  align="center" width="90%" border="1" cellpadding="10">
+    <table align="center" width="90%" border="1" cellpadding="10">
         <thead>
 
             <tr>
@@ -45,13 +45,7 @@
             </tr>
         </thead>
         <tbody id="output">
-            <tr>
-                <td>1</td>
-                <td>Bhavnagar</td>
-                <td>Baroda</td>
-                <td>AC</td>
-                <td>06:00 AM</td>
-            </tr>
+
         </tbody>
     </table>
     <script>
@@ -95,16 +89,52 @@
             { from: 'surat', to: 'rajkot', busType: 'AC', departureTime: '06:15 PM' },
         ]
 
-    let searchBus = function()
-    {
-        var from = document.getElementById('from').value;
-        var to = document.getElementById('to').value;
-        console.log(from,to);
-        routes.filter(function(item){
-            console.log(item);
-        })
-        return false;
-    }
+        let searchBus = function () {
+            var from = document.getElementById('from').value; //bhavnagar
+            var to = document.getElementById('to').value; //surat
+            var output = document.getElementById('output');
+            var bustype = null;
+            try {
+                bustype = document.querySelector("input[name='bustype']:checked").value;
+            }
+            catch (error) {
+                bustype = '';
+            }
+            finally {
+                console.log(from, to);
+                var availableRoutes = routes.filter(function (item) {
+                    //console.log(item);
+                    if(bustype === '' &&  item.from === from && item.to === to)
+                        return item;
+                    else if (bustype === item.busType && item.from === from && item.to === to)
+                        return item;
+                })
+                // console.log(availableRoutes);
+                var content = '';
+                output.innerHTML = '';
+                if (availableRoutes.length === 0) {
+                    content = `<tr><td colspan='5' align='center'><font color='red'>no bus found from ${from} to ${to}</font></td></tr>`;
+                    output.innerHTML = content;
+                }
+                else {
+                    availableRoutes.map(function (item, index) {
+                        //object destrucrting
+                        let { from, to, busType, departureTime } = item;
+
+                        content = `<tr>
+                <td>${index + 1}</td>
+                <td>${from}</td>
+                <td>${to}</td>
+                <td>${busType}</td>
+                <td>${departureTime}</td>
+            </tr>`;
+                        output.innerHTML += content;
+                    })
+                }
+            }
+
+            return false;
+        }
     </script>
 </body>
 
