@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>es6 Operator</h1>
+    <hr>
+    <ul id="output1">
+
+    </ul>
+    <hr>
+    <ul id="output2">
+
+    </ul>
+    <hr>
+    <ul id="output3">
+    
+    </ul>
+    <script>
+        //create 2 list
+        var fruits = ['apple', 'banana', 'mango'];
+        var grains = ['wheat', 'rice', 'dal'];
+        var output1 = document.getElementById('output1');
+        var output2 = document.getElementById('output2');
+        var output3 = document.getElementById('output3');
+        function displayList(list,target)
+        {
+            //map function
+             list.map(function (item) {
+                target.innerHTML += `<li>${item}</li>`;
+            });
+        }
+        displayList(fruits,output1);
+        displayList(grains,output2);
+        //merge array/list into another array/list
+        var mixed_list = [...fruits,...grains];
+        displayList(mixed_list,output3);
+      
+    </script>
+</body>
+
+</html>

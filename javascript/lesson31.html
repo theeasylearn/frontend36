@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Object Cloning</h1>
+    <hr>
+    <script>
+        var product = {
+            name: 'IPhone 15 pro max',
+            price: 165000,
+            company: 'Apple',
+            memory: '8GB'
+        };
+        //console.log(product);
+
+        // wrong way
+        // var copy_product = product;
+        var clone = {}; //create empty object
+
+        //write way
+        for(let key in product)
+        {
+            clone[key] = product[key];
+        }
+        clone['price'] = 151700;
+        product['memory'] = '12GB';
+        console.log(product);
+        console.log(clone);
+    </script>
+</body>
+
+</html>

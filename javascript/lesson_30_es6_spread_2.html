@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>es6 Operator</h1>
+    <hr>
+    <ul id="output1">
+
+    </ul>
+    <hr>
+    <ul id="output2">
+
+    </ul>
+    <hr>
+    <ul id="output3">
+
+    </ul>
+    <script>
+        //create 2 list
+        var product = {
+            name: 'IPhone 15 pro max',
+            price: 165000,
+            company: 'Apple',
+            memory:'8GB'
+        };
+
+        var detail = {
+            Technology: 'GSM / CDMA / HSPA / EVDO / LTE / 5G',
+            size: 6.7,
+            camara: '48mp',
+            price: 151700
+        }
+        var output1 = document.getElementById('output1');
+        var output2 = document.getElementById('output2');
+        var output3 = document.getElementById('output3');
+        for (let key in product) {
+            output1.innerHTML += `<li>${key} = ${product[key]}</li>`
+        }
+        for (let key in detail) {
+            output2.innerHTML += `<li>${key} = ${detail[key]}</li>`
+        }
+        //merge two object into another new object
+        var newObject = { ...product, ...detail };
+        for (let key in newObject) {
+            output3.innerHTML += `<li>${key} = ${newObject[key]}</li>`
+        }
+    </script>
+</body>
+
+</html>
