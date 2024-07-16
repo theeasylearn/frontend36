@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>working with cookies</h1>
+    <hr>
+    <form action="" onsubmit="return createCookie();">
+        <table border="1" cellpadding="10" align="center">
+            <tr>
+                <td>
+                    Cookies Name
+                </td>
+                <td>
+                    <input type="text" name="cookiename" id="cookiename" required />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Cookies value
+                </td>
+                <td>
+                    <input type="text" name="cookievalue" id="cookievalue" required />
+                </td>
+            </tr>
+            <tr>
+                <td align="center" colspan="2">
+                    <input type="submit" value="Create cookie" />
+                    <input type="button" value="get cookie" onclick="readCookie();" />
+                    <input type="reset" value="clear all" />
+                </td>
+            </tr>
+
+        </table>
+        <script src="cookies.js"></script>
+
+        <script>
+            var cookiename = document.getElementById('cookiename');
+            var cookievalue = document.getElementById('cookievalue');
+            let createCookie = () => {
+
+                console.log(cookiename.value, cookievalue.value);
+                //create cookie
+                setCookie(cookiename, cookievalue);
+                alert('cookies has been created successfully');
+                cookiename.value = "";
+                cookievalue.value = "";
+                return false;
+            }
+
+            let readCookie = () => {
+                if(cookiename.value === "")
+                    alert('please give cookie name to fetch');
+                else 
+                {
+                    let temp = getCookie(cookiename.value);
+                    if(temp === "")
+                        alert('no such cookie');
+                    else 
+                        cookievalue.value = temp;
+                    }
+            }
+        </script>
+    </form>
+</body>
+
+</html>
