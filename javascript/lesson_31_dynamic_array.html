@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>ES6 way to create object (4th technique)</h1>
+    <table border="1" cellpadding="10" align="center" width="80%">
+        <thead>
+            <form action="" onsubmit="return bookTicket();">
+                <tr>
+                    <td colspan="2">
+                        <input type="text" id="name" placeholder="Passanger Name" required />
+                    </td>
+                    <td colspan="2">
+                        <input type="tel" id="mobile" placeholder="Mobile" required />
+                
+                    </td>
+                    <td>
+                        <input type="number" id="seatno" placeholder="Seat No" required />
+                    </td>
+                    <td>
+                        <input type="submit" id="submit" value="Book ticket" />
+                
+                    </td>
+                </tr>
+            </form>
+            <tr>
+                <td>Srno</td>
+                <td>Name</td>
+                <td>Mobile</td>
+                <td>Seat count</td>
+                <td>Seat No</td>
+                <td>Total</td>
+            </tr>
+        </thead>
+        <tbody id="output">
+
+        </tbody>
+    </table>
+    <script>
+        //create constant
+        const TICKET_PRICE = 100;
+        var output = document.getElementById('output');
+        var srno = 1;
+        //create an empty array
+        let data = [];
+        class Ticket {
+            constructor(name, mobile, seatno) {
+                this.name = name;
+                this.mobile = mobile;
+                this.seatno = seatno;
+                let arr = this.seatno.split(',');
+                // console.log(this.seatno, arr.length);
+                this.count = arr.length;
+                this.total = arr.length * TICKET_PRICE;
+            }
+            addRow() {
+                console.log(this);
+                let content = ` <tr>
+                <td>${srno++}</td>
+                <td>${this.name}</td>
+                <td>${this.mobile}</td>
+                <td>${this.count}</td>
+                <td>${this.seatno}</td>
+                <td>${this.total}</td>
+            </tr>`;
+                output.innerHTML += content;
+            }
+        }
+        //create object 
+       
+        let bookTicket = () => {
+            let name = document.getElementById('name');
+            let mobile   = document.getElementById('mobile');
+            let seatno = document.getElementById('seatno');
+            console.log(name.value,mobile.value,seatno.value);
+             var t1 = new Ticket(name.value,mobile.value,seatno.value);
+            t1.addRow();
+            data.push(t1); //add object into array
+            console.log(data);
+            name.value = "";
+            seatno.value = "";
+            mobile.value = "";
+            return false;
+        }
+
+    </script>
+</body>
+
+</html>
