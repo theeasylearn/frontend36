@@ -11,6 +11,14 @@
     <h1>ES6 way to create object (4th technique)</h1>
     <table border="1" cellpadding="10" align="center" width="80%">
         <thead>
+            <tr>
+                <td colspan="3" align="left" id="totalavailableseats">
+                    Total available seats
+                </td>
+                <td colspan="3" align="right" id="totalbookedseat">
+                    Total booked seats
+                </td>
+            </tr>
             <form action="" onsubmit="return bookTicket();">
                 <tr>
                     <td colspan="2">
@@ -18,14 +26,14 @@
                     </td>
                     <td colspan="2">
                         <input type="tel" id="mobile" placeholder="Mobile" required />
-                
+
                     </td>
                     <td>
-                        <input type="number" id="seatno" placeholder="Seat No" required />
+                        <input type="text" id="seatno" placeholder="Seat No" required />
                     </td>
                     <td>
                         <input type="submit" id="submit" value="Book ticket" />
-                
+
                     </td>
                 </tr>
             </form>
@@ -45,19 +53,25 @@
     <script>
         //create constant
         const TICKET_PRICE = 100;
+        const TOTAL_SEAT_IN_BUS = 3;
         var output = document.getElementById('output');
         var srno = 1;
+        var TotalTickets = 0; //used to store total no of ticket booked
         //create an empty array
         let data = [];
+        var totalbookedseat = document.getElementById('totalbookedseat');
+        var totalavailableseats = document.getElementById('totalavailableseats');
         class Ticket {
-            constructor(name, mobile, seatno) {
+            constructor(name, mobile, seatno, count) {
                 this.name = name;
                 this.mobile = mobile;
                 this.seatno = seatno;
-                let arr = this.seatno.split(',');
                 // console.log(this.seatno, arr.length);
-                this.count = arr.length;
-                this.total = arr.length * TICKET_PRICE;
+                this.count = count;
+                this.total = count * TICKET_PRICE;
+                TotalTickets = TotalTickets + this.count;
+                totalbookedseat.innerHTML = "Total booked seats " + TotalTickets;
+                totalavailableseats.innerHTML = "Total available seats " + (TOTAL_SEAT_IN_BUS - TotalTickets);
             }
             addRow() {
                 console.log(this);
@@ -72,20 +86,51 @@
                 output.innerHTML += content;
             }
         }
+        let  findCommonValues = function (arrays) {
+                // Assume the first array as the base to compare with other arrays
+                console.log(arrays);
+                return arrays[0].filter(value =>
+                    arrays.every(array => array.includes(value))
+                );
+            }
         //create object 
-       
+        let checkSeats = (seat_user_wants) =>
+        {
+            data.map((item) => {
+                let temp_array = item.seatno.split(",");
+                const commonValues = findCommonValues([seat_user_wants,temp_array]);
+                console.log(commonValues);
+                if(commonValues.length>0)
+                    return false;
+                else 
+                    return true;
+            })
+        }
         let bookTicket = () => {
             let name = document.getElementById('name');
-            let mobile   = document.getElementById('mobile');
+            let mobile = document.getElementById('mobile');
             let seatno = document.getElementById('seatno');
-            console.log(name.value,mobile.value,seatno.value);
-             var t1 = new Ticket(name.value,mobile.value,seatno.value);
-            t1.addRow();
-            data.push(t1); //add object into array
-            console.log(data);
-            name.value = "";
-            seatno.value = "";
-            mobile.value = "";
+
+            console.log(name.value, mobile.value, seatno.value);
+            let arr = seatno.value.split(',');
+            console.log(arr, arr.length);
+            var isAllSeatsAvailable = checkSeats(arr);
+            if (isAllSeatsAvailable === false) {
+                alert('seats are already booked');
+            }
+            else if (TotalTickets + arr.length <= TOTAL_SEAT_IN_BUS) {
+                var t1 = new Ticket(name.value, mobile.value, seatno.value, arr.length);
+                t1.addRow();
+                data.push(t1); //add object into array
+                console.log(data);
+                name.value = "";
+                seatno.value = "";
+                mobile.value = "";
+
+            }
+            else {
+                alert("bus is full. ticket can not be booked");
+            }
             return false;
         }
 
