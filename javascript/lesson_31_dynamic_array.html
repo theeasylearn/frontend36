@@ -53,7 +53,7 @@
     <script>
         //create constant
         const TICKET_PRICE = 100;
-        const TOTAL_SEAT_IN_BUS = 3;
+        const TOTAL_SEAT_IN_BUS = 5;
         var output = document.getElementById('output');
         var srno = 1;
         var TotalTickets = 0; //used to store total no of ticket booked
@@ -74,7 +74,7 @@
                 totalavailableseats.innerHTML = "Total available seats " + (TOTAL_SEAT_IN_BUS - TotalTickets);
             }
             addRow() {
-                console.log(this);
+                //console.log(this);
                 let content = ` <tr>
                 <td>${srno++}</td>
                 <td>${this.name}</td>
@@ -88,48 +88,54 @@
         }
         let  findCommonValues = function (arrays) {
                 // Assume the first array as the base to compare with other arrays
-                console.log(arrays);
+                console.log("seat user wants ",arrays[0]);
+                console.log("booked seats",arrays[1]);
                 return arrays[0].filter(value =>
                     arrays.every(array => array.includes(value))
                 );
             }
         //create object 
-        let checkSeats = (seat_user_wants) =>
+        let checkSeats = (seat_user_wants) => //12 13 15
         {
+            let shouldIBookSeat = true;
+            let bookedSeats = [];
             data.map((item) => {
-                let temp_array = item.seatno.split(",");
+                let temp_array = item.seatno.split(","); //11
                 const commonValues = findCommonValues([seat_user_wants,temp_array]);
                 console.log(commonValues);
                 if(commonValues.length>0)
-                    return false;
-                else 
-                    return true;
+                {
+                    bookedSeats = [...bookedSeats,commonValues];
+                    shouldIBookSeat = false;
+                }
+               
             })
+            if(shouldIBookSeat === false)
+                alert("following seats are booked " + bookedSeats.join(","))
+            return shouldIBookSeat;    
         }
         let bookTicket = () => {
             let name = document.getElementById('name');
             let mobile = document.getElementById('mobile');
-            let seatno = document.getElementById('seatno');
+            let seatno = document.getElementById('seatno'); //12, 13, 15
 
-            console.log(name.value, mobile.value, seatno.value);
-            let arr = seatno.value.split(',');
-            console.log(arr, arr.length);
+            //console.log(name.value, mobile.value, seatno.value);
+            let arr = seatno.value.split(','); [12,13,15]
+            //console.log(arr, arr.length);
             var isAllSeatsAvailable = checkSeats(arr);
-            if (isAllSeatsAvailable === false) {
-                alert('seats are already booked');
-            }
-            else if (TotalTickets + arr.length <= TOTAL_SEAT_IN_BUS) {
+            if (isAllSeatsAvailable === true && TotalTickets + arr.length <= TOTAL_SEAT_IN_BUS) {
                 var t1 = new Ticket(name.value, mobile.value, seatno.value, arr.length);
                 t1.addRow();
                 data.push(t1); //add object into array
-                console.log(data);
+                //console.log(data);
                 name.value = "";
                 seatno.value = "";
                 mobile.value = "";
 
             }
             else {
-                alert("bus is full. ticket can not be booked");
+                if(TotalTickets + arr.length >= TOTAL_SEAT_IN_BUS)
+                    alert("bus is full. ticket can not be booked");
             }
             return false;
         }
