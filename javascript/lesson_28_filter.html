@@ -51,6 +51,7 @@
     <script>
 
         var output = document.getElementById('output');
+        //route is list(array) of objects
         var routes = [
             { from: 'bhavnagar', to: 'surat', busType: 'AC', departureTime: '08:00 AM' },
             { from: 'rajkot', to: 'baroda', busType: 'non AC', departureTime: '09:30 AM' },
@@ -88,7 +89,6 @@
             { from: 'bhavnagar', to: 'surat', busType: 'non AC', departureTime: '04:30 PM' },
             { from: 'surat', to: 'rajkot', busType: 'AC', departureTime: '06:15 PM' },
         ]
-
         let searchBus = function () {
             var from = document.getElementById('from').value; //bhavnagar
             var to = document.getElementById('to').value; //surat
@@ -132,7 +132,6 @@
                     })
                 }
             }
-
             return false;
         }
     </script>
