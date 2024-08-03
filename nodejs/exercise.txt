@@ -1,3 +1,6 @@
 1) create nodejs example using 7_create_server.js, this example must return all district of name of any given indian state name. 
 
 2) create nodejs example which returns table tag of 5 players match, run, 50s, 100s and average of given team name (odi cricket)
+
+3) create nodejs example which has one input that is name of the continent filter list given in country.txt file and return result as json. 
+

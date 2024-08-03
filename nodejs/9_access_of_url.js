@@ -48,13 +48,28 @@ var server = http.createServer(function (request, response){
     //{from:'bhavnagar',to:'baroda',type:'ac'}
     console.log(input);
     response.writeHead(200,{'content-type':'text/html'});
-    if(input.from === undefined || input.to === undefined || input.type === undefined)
+    var { from, to, type } = input; //object destructring
+    if(from === undefined || to === undefined || type === undefined)
     {
         output = [{'error':'input is missing'}]
     }
     else 
     {
-
+        //below code filter list/array
+        var availableRoutes = bus_routes.filter(function (item) {
+            //console.log(item);
+            if (type === item.busType && item.from === from && item.to === to)
+                return item;
+        });
+        if(availableRoutes.length === 0)
+        {
+            output = [{ 'error': 'no' },{total:0}]
+        }    
+        else 
+        {
+            output = [{ 'error': 'no' }, { total: availableRoutes.length }]
+            output = [...output,...availableRoutes];
+        }
     }
     response.write(JSON.stringify(output));
     response.end();
