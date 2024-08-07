@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submit Your Story</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        td {
+            padding: 10px;
+            border: 2px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Submit Your Story</h1>
+    <form action="http://localhost:5000/story" method="get">
+        <table>
+            <tr>
+                <td><label for="name">Story Name:</label></td>
+                <td><input type="text" id="name" name="name" required></td>
+            </tr>
+            <tr>
+                <td><label for="content">Story:</label></td>
+                <td><textarea id="content" name="content" rows="10" cols="30" required></textarea></td>
+            </tr>
+            <tr>
+                <td colspan="2" style="text-align: center;">
+                    <button type="submit">Submit</button>
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+
+</html>

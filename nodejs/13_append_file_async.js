@@ -11,13 +11,13 @@ var server = http.createServer(function(request,response){
     //write data into file 
     var FileName = 'story.txt';
     var FileContent = input.name + '\n' + input.content + '\n';
-    fs.writeFile(FileName,FileContent,function(error)
+    fs.appendFile(FileName,FileContent,function(error)
     {
         response.writeHead(200,{'content-type':'text/html'});
         if(error)
             response.write("error in writing file.");
         else 
-            response.write('story saved successfully');
+            response.write('story saved successfully....');
         response.end();
     });
 });

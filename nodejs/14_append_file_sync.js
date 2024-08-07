@@ -7,19 +7,12 @@ var url = require('url');
 var server = http.createServer(function(request,response){
     var querystring = url.parse(request.url, true);
     var input = querystring.query;
-    //console.log(input.name,input.content);
-    //write data into file 
     var FileName = 'story.txt';
     var FileContent = input.name + '\n' + input.content + '\n';
-    fs.writeFile(FileName,FileContent,function(error)
-    {
-        response.writeHead(200,{'content-type':'text/html'});
-        if(error)
-            response.write("error in writing file.");
-        else 
-            response.write('story saved successfully');
-        response.end();
-    });
+    fs.appendFileSync(FileName,FileContent);
+    response.writeHead(200,{'content-type':'text/html'});
+    response.write('story saved successfully....');
+    response.end();
 });
 server.listen(5000);
 console.log('ready to accept reqeust....');
