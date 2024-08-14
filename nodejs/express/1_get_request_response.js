@@ -38,7 +38,7 @@ app.get("/affrica", function (request, response) {
     let countries = continents[0]['countries'];
     response.json([{ 'countries': countries }]);
 });
-
+//404
 app.all("*",function(request,response){
     response.json([{ 'error': 'no such route exist' }]);
 });
