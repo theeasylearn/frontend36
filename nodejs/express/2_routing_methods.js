@@ -70,7 +70,7 @@ app.put(ROUTE, function (request, response) {
 //id
 
 app.delete(ROUTE, function (request, response) {
-    let {id} = request.body;
+    let { id } = request.body;
     let isFound = false;
     if (id === undefined) {
         response.json([{ 'error': 'input is missing' }]);
@@ -99,9 +99,26 @@ app.get(ROUTE, function (request, response) {
     response.json(temp);
 });
 
-// //fetch single  contact
-// app.get(ROUTE, function (request, response) {
+//fetch single  contact
+// Endpoint: http://localhost:5000/contact/ankit
+// Method: get 
+app.get(ROUTE + "/:name", function (request, response) {
+    let name = request.params.name;
+    let isFound = false;
+    let temp = contacts.filter((item) => {
+        if (item.name == name) {
+            isFound = true;
+            return item;
+        }
+    });
+    if (isFound == false)
+        response.json([{ 'error': 'contact not found' }]);
+    else {
+        temp.unshift({ 'total': temp.length })
+        temp.unshift({ 'error': 'no' })
+        response.json(temp);
+    }
 
-// });
+});
 app.listen(5000);
 console.log('ready to accept request');
