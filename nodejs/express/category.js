@@ -44,16 +44,18 @@ app.put(CATEGORY_ROUTE, function (request, response) {
 });
 
 //delete
-app.delete(CATEGORY_ROUTE, function (request, response) {
-
-});
-
-//purpose : used to get all categories 
-//method : get
+//purpose : used to delete category 
+//method : delete
 // url : http://localhost:5000/category
-// input : nothing
-app.get(CATEGORY_ROUTE, function (request, response) {
-    var sql = "select id,title,detail,photo from category order by id desc";
+// input : id
+app.delete(CATEGORY_ROUTE, function (request, response) {
+    // var id = request.body.id; or 
+    var {id} = request.body;
+    if(id === undefined)
+    {
+        response.json([{ 'error': 'input is missing' }]);
+    }
+    var sql = `update category set isdeleted=1 where id=${id}`;
     connection.con.query(sql,function(error,result){
         if (error) {
             response.json([{ 'error': 'error occured' }]);
@@ -61,6 +63,27 @@ app.get(CATEGORY_ROUTE, function (request, response) {
         }
         else 
         {
+            response.json([{ 'error': 'no' }, { 'message': 'category deleted' }]);
+        }
+    });
+});
+
+//purpose : used to get all categories 
+//method : get
+// url : http://localhost:5000/category
+// input : nothing
+app.get(CATEGORY_ROUTE, function (request, response) {
+    var sql = "select id,title,detail,photo from category where isdeleted=0 order by id desc";
+    connection.con.query(sql,function(error,result){
+        if (error) 
+        {
+            response.json([{ 'error': 'error occured' }]);
+            console.log(error);
+        }
+        else 
+        {
+            result.unshift({'total':result.length});  //add object at begining (left side)
+            result.unshift({'error':'no'}); //add object at begining (left side)
             response.json(result);
         }
     });
