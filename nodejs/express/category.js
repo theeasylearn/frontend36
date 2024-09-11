@@ -39,8 +39,32 @@ app.post(CATEGORY_ROUTE, function (request, response) {
 });
 
 //update
+//purpose : used to update category 
+//method : put
+// url : http://localhost:5000/category
+// input : id,title,photo,detail (required)
 app.put(CATEGORY_ROUTE, function (request, response) {
-
+    let {id,title,detail} = request.body; //object destructring
+    if(id === undefined || title === undefined || detail === undefined)
+    {
+        response.json([{'error':'input is missing'}]);
+    }
+    else 
+    {
+        photo = 'new_photo.jpg';
+        let sql = `update category set title='${title}', detail='${detail}', photo='${photo}' where id=${id}`;
+        connection.con.query(sql,function(error,result){
+            if(error)
+            {
+                response.json({'error':'error occured'});
+                console.log(error);
+            }
+            else 
+            {
+                response.json([{'error':'no'},{'message':'category updated'}]);
+            }
+        });
+    }
 });
 
 //delete
