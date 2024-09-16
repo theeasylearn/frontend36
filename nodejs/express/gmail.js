@@ -4,7 +4,7 @@ class mail
     constructor()
     {
         this.sender = 'frontent.backend36@gmail.com';
-        this.password = 'mxyb bfwx jvde lfy2 ';
+        this.password = 'dhyd cvmi fmfw bdxw';
         this.MailSender = nodemailer.createTransport({
             host: 'smtp.gmail.com',
             port: 587,
