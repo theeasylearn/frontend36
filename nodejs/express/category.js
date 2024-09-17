@@ -10,12 +10,8 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json()); // New line added
 app.use(cors());
 
-//purpose : used to insert a new category 
-//method : post
-// url : http://localhost:5000/category
-// input : title,photo (all required)
 
-app.post(CATEGORY_ROUTE, function (request, response) {
+module.exports.insert = function (request, response) {
     //object destructring 
     var { title, detail } = request.body;
     //check all inputs are given or not
@@ -36,14 +32,9 @@ app.post(CATEGORY_ROUTE, function (request, response) {
             }
         });
     }
-});
+}
 
-//update
-//purpose : used to update category 
-//method : put
-// url : http://localhost:5000/category
-// input : id,title,photo,detail (required)
-app.put(CATEGORY_ROUTE, function (request, response) {
+module.exports.update = function (request, response) {
     let {id,title,detail} = request.body; //object destructring
     if(id === undefined || title === undefined || detail === undefined)
     {
@@ -65,14 +56,9 @@ app.put(CATEGORY_ROUTE, function (request, response) {
             }
         });
     }
-});
+}
 
-//delete
-//purpose : used to delete category 
-//method : delete
-// url : http://localhost:5000/category
-// input : id
-app.delete(CATEGORY_ROUTE, function (request, response) {
+module.exports.delete = function (request, response) {
     // var id = request.body.id; or 
     var {id} = request.body;
     if(id === undefined)
@@ -90,13 +76,10 @@ app.delete(CATEGORY_ROUTE, function (request, response) {
             response.json([{ 'error': 'no' }, { 'message': 'category deleted' }]);
         }
     });
-});
+}
 
-//purpose : used to get all categories 
-//method : get
-// url : http://localhost:5000/category
-// input : nothing
-app.get(CATEGORY_ROUTE, function (request, response) {
+
+module.exports.select = function (request, response) {
     var sql = "select id,title,detail,photo from category where isdeleted=0 order by id desc";
     connection.con.query(sql,function(error,result){
         if (error) 
@@ -111,7 +94,5 @@ app.get(CATEGORY_ROUTE, function (request, response) {
             response.json(result);
         }
     });
-});
+}
 
-app.listen(5000);
-console.log('ready to accept request');
