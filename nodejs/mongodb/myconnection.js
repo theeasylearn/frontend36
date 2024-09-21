@@ -1,9 +1,12 @@
-var mongdb = require('mongodb')
-var client = mongdb.MongoClient;
-var database_address = "mongodb://0.0.0.0:27017/frontend36";
-client.connect(database_address,function(error,result){
-    if(error)
-        console.log(error);
-    else 
-        console.log('connected');
+var mongodb = require('mongodb');
+var client = mongodb.MongoClient;
+const DATABASE_NAME = "frontend36";
+var database_url = "mongodb://0.0.0.0:27017/" + DATABASE_NAME;
+let db = client.connect(database_url).then((client) => {
+    console.log('connection created....');
+    return client.db(DATABASE_NAME);
+}).catch((error) => {
+    console.error(error);
+    throw error;
 });
+module.exports.dbPromise = db;
