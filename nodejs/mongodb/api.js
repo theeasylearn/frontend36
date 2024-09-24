@@ -62,12 +62,16 @@ app.put(ROUTE,function(request,response){
 app.delete(ROUTE,function(request,response){
     
     dbPromise.then((database) => {
-        var condition = {subject:'mongodb'};
-        database.collection('easylearn').deleteOne(condition,function(error,result){
+        var condition = {movie:"stree2"};
+
+        database.collection('easylearn').deleteMany(condition,function(error,result){
             if(error)
                 response.json([{'error':'error in deleting document'}]);
             else 
+            {
+                console.log(result);
                 response.json([{'error':'no'},{'message':'document deleted'}]);
+            }
         });
     }).catch((error) => {
         response.json([{ 'error': 'error in connection'}]);
@@ -76,14 +80,35 @@ app.delete(ROUTE,function(request,response){
 
 
 //it is used to get all persons
-app.get(ROUTE,function(request,response){
+//method get
+//localhost:5000/person
 
+//it is used to get  persons with given name
+//method get
+http://localhost:5000/person?name=Ankit M Patel
+
+app.get(ROUTE,function(request,response){
+    //console.log(request);
+    let name = request.query.name;
+    var condition = {};
+    if(name !== undefined)
+        condition = { name: name}
+    console.log(condition);
+    dbPromise.then((database) => {
+        var orderBy = {name:1};
+        database.collection('easylearn').find(condition).sort(orderBy).limit(10).toArray(function(err,result){
+            if(err)
+                response.json([{'error':'error in fetching  documents'}]);
+            else 
+               if(result.length==0)
+                    response.json([{'error':'no document found'}]);
+               else 
+                    response.json(result); 
+        });
+    });
 });
 
-// //it is used to get paticular persons by id
-// app.get(ROUTE,function(request,response){
 
-// });
 
 app.listen(5000);
 console.log('ready to accept request');
