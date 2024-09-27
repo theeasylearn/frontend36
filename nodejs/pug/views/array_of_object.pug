@@ -1,0 +1,22 @@
+doctype html 
+html 
+    head 
+        title
+    body 
+        h1 working with array of object
+        <hr/>
+        table(border='1',align='center',width='50%')
+            tr 
+                th sr no
+                th name 
+                th surname 
+                th age 
+                th gender
+            each row,index in table 
+                tr  
+                    td=(index+1)
+                    td #{row.name}
+                    td #{row.surname}
+                    td #{row.age}
+                    td #{row.gender}
+            

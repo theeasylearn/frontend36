@@ -267,6 +267,17 @@ app.get("/object1",function(request,response){
         }
     }
     response.render('object1',data);
-})
+});
+app.get("/array_of_object",function(request,response){
+    var students = [
+        {name:'Sanket',surname:'Solanki',age:22,gender:true},
+        {name:'Priya',surname:'desai',age:25,gender:false},
+        {name:'mahesh',surname:'patel',age:24,gender:true},
+        {name:'Nega',surname:'shah',age:26,gender:true},
+    ];
+    response.render('array_of_object',{
+        table: students
+    });
+});
 app.listen(5000);
 console.log('ready to accept request.');
