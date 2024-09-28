@@ -2,21 +2,13 @@ var express = require('express');
 var app = express();
 app.set('view engine','pug');
 app.set('views','views');
-// home about us service product contact
-app.get("/",function(request,response){
-    // response.render('home');
+
+app.get("/sample",function(request,response){
+    response.render('sample');
 });
-app.get("/aboutus",function(request,response){
-    // response.render('home');
-});
-app.get("/service",function(request,response){
-    // response.render('home');
-});
-app.get("/product",function(request,response){
-    // response.render('home');
-});
-app.get("/contactus",function(request,response){
-    // response.render('home');
+
+app.get("/vision",function(request,response){
+    response.render('vision');
 });
 app.listen(5000);
 console.log('ready to accept request.');

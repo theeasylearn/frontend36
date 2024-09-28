@@ -1,0 +1,27 @@
+Reference 
+https://www.sundeepkochar.com/
+ 
+1) Home
+	Sliders
+	Introduction 
+	Facts & Figures
+	Services
+		Horoscope Reading
+		Plam Reading 
+		Tarot Reading 
+		Kundli Matching
+		Testimonials
+	Blogs
+	Footer
+2) About us
+3) Services
+		Horoscope Reading
+		Plam Reading 
+		Tarot Reading 
+		Kundli Matching
+		Testimonials
+4) Contact us
+	Address
+	Form 
+	Map 
+	
