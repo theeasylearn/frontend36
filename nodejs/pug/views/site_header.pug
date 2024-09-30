@@ -1,0 +1,54 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='utf-8')
+    meta(name='author', content='Chitrakoot Web')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no')
+    meta(name='keywords', content='Astrology and Horoscope HTML Template')
+    meta(name='description', content='Zodiac - Astrology and Horoscope HTML Template')
+    title Zodiac - Astrology and Horoscope HTML Template
+    // plugins
+    link(rel='stylesheet', href='/project/site/css/plugins.css')
+    // search css
+    link(rel='stylesheet', href='/project/site/search/search.css')
+    // quform css
+    link(rel='stylesheet', href='/project/site/quform/css/base.css')
+    // core style css
+    link(href='/project/site/css/styles.css', rel='stylesheet')
+  body
+    //
+      PAGE LOADING
+      ==================================================
+    #preloader
+    //
+      MAIN WRAPPER
+      ==================================================
+    .main-wrapper
+      //
+        HEADER
+        ==================================================
+      header.header-style1.menu_area-light
+        .navbar-default.border-bottom.border-color-light-white
+          .container-fluid.px-lg-1-6.px-xl-2-5.px-xxl-2-9
+            .row.align-items-center
+              .col-12.col-lg-12
+                .menu_area
+                  nav.navbar.navbar-expand-lg.navbar-light.p-0
+                    .navbar-header.navbar-header-custom
+                      // start logo
+                      a.navbar-brand(href='/')
+                        img(src='/project/site/img/logos/logo-inner.png', alt='logo')
+                      // end logo
+                    .navbar-toggler.bg-primary
+                    // menu area
+                    ul#nav.navbar-nav.ms-auto(style='display: none;')
+                      li
+                        a(href='/') Home
+                      li
+                        a(href='/aboutus') About us
+                      li
+                        a(href='/service') Services
+                      li
+                        a(href='/contactus') Contact Us
+                    // end menu area
