@@ -1,0 +1,97 @@
+include site_header 
+section.page-title-section.bg-img.cover-background.top-position1.secondary-overlay(data-overlay-dark='7', data-background='/project/site/img/banner/page-title-01.jpg')
+      .container
+        .row.text-center
+          .col-md-12
+            h1.text-animation(data-in-effect='fadeInRight') Contact us
+            ul.position-relative
+              li
+                a(href='/') Home
+              li
+                a(href='#!') Contact us
+.container
+      .row.my-5
+        .col-lg-5
+          .card.shadow
+            .card-body
+              .title-three.mb-1-9.mb-md-5
+                h3.text-secondary.mb-0 Get In Touch
+              .d-flex.mb-4
+                div
+                  i.fas.fa-map-marker-alt.text-primary.display-25.display-lg-20
+                .ps-4
+                  h4.h5.text-primary Location
+                  p.mb-0 105, Eva-surbhi, Opp aksharwadi temple, Bhavnagar
+              .d-flex.mb-4
+                div
+                  i.fas.fa-phone-alt.text-primary.display-25.display-lg-20
+                .ps-4
+                  h4.h5.text-primary Phone
+                  p.mb-0 + (91) 1234-5678-90
+              .d-flex
+                div
+                  i.far.fa-envelope.text-primary.display-25.display-lg-20
+                .ps-4
+                  h4.h5.text-primary Email
+                  p.mb-0 info@astrooracle.com
+        .col-lg-7
+          .card.shadow
+            .card-body
+              .ps-lg-1-9.ps-xl-7
+                .title-three.mb-1-9.mb-md-5
+                  h3.text-primary Have Question? let us talk
+                form.contact.quform(action='https://zodiac.websitelayout.net/quform/contact.php', method='post', enctype='multipart/form-data', onclick='')
+                  .quform-elements
+                    .row
+                      // Begin Text input element
+                      .col-md-6
+                        .quform-element.form-group
+                          label(for='name')
+                            | Your Name 
+                            span.quform-required *
+                          .quform-input
+                            input#name.form-control(type='text', name='name', placeholder='Your name here')
+                      // End Text input element
+                      // Begin Text input element
+                      .col-md-6
+                        .quform-element.form-group
+                          label(for='email')
+                            | Your Email 
+                            span.quform-required *
+                          .quform-input
+                            input#email.form-control(type='text', name='email', placeholder='Your email here')
+                      // End Text input element
+                      // Begin Text input element
+                      .col-md-6
+                        .quform-element.form-group
+                          label(for='subject')
+                            | Your Subject 
+                            span.quform-required *
+                          .quform-input
+                            input#subject.form-control(type='text', name='subject', placeholder='Your subject here')
+                      // End Text input element
+                      // Begin Text input element
+                      .col-md-6
+                        .quform-element.form-group
+                          label(for='phone') Contact Number
+                          .quform-input
+                            input#phone.form-control(type='text', name='phone', placeholder='Your phone here')
+                      // End Text input element
+                      // Begin Textarea element
+                      .col-md-12
+                        .quform-element.form-group
+                          label(for='message')
+                            | Message 
+                            span.quform-required *
+                          .quform-input
+                            textarea#message.form-control(name='message', rows='3', placeholder='Tell us a few words')
+                      // End Textarea element
+                      // Begin Submit button
+                      .col-md-12
+                        .quform-submit-inner
+                          button.butn-style2.butn-style2.theme.border-0(type='submit')
+                            span Send Message
+                        .quform-loading-wrap.text-start
+                          span.quform-loading
+                      // End Submit button
+include site_footer
