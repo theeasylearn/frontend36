@@ -1,4 +1,6 @@
 var express = require('express');
+var connection = require('./connection');
+
 var path = require('path');
 var app = express();
 app.set('view engine','pug');
@@ -13,7 +15,21 @@ app.get("/aboutus",function(request,response){
     response.render('aboutus');
 });
 app.get("/service",function(request,response){
-    response.render('services');
+    //fetch data from database (service)
+    var sql = "select * from services order by id";
+    connection.con.query(sql,function(error,result){
+        if (error) 
+        {
+            response.render('services');
+            console.log(error);
+        }
+        else 
+        {
+            response.render('services',{
+                table:result
+            });
+        }
+    });
 });
 
 app.get("/contactus",function(request,response){

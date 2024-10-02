@@ -13,43 +13,14 @@ section.page-title-section.bg-img.cover-background.top-position1.secondary-overl
 .container.my-5
       .row
         .col-12
-          .card.mb-3.shadow(data-aos='fade-right')
-            .row.g-0
-              .col-md-4
-                img.img-fluid.rounded-start(src='/project/site/img/Horoscope-Reading.jpg', alt='Horoscope Reading')
-              .col-md-8
-                .card-body
-                  h5.card-title Horoscope Reading
-                  p.card-text
-                    | Horoscope reading is an ancient practice rooted in Vedic astrology that helps individuals gain insight into their life&rsquo;s path, potential challenges, and opportunities. By analyzing the position of the planets and stars at the time of your birth, astrologers can uncover patterns and trends that may influence various aspects of your life, including career, relationships, and health. An Indian astrologer uses precise birth charts, or Janam Kundli, to predict important life events and guide individuals on how to navigate their journey. Horoscope readings are not only a tool for prediction but also a means to understand one&rsquo;s strengths and weaknesses, helping individuals make informed decisions.
-          // Palm Reading Card
-          .card.mb-3.shadow(data-aos='fade-left')
-            .row.g-0
-              .col-md-8
-                .card-body
-                  h5.card-title Palm Reading
-                  p.card-text
-                    | Palm reading, or Hast Rekha Shastra, is a centuries-old practice in Indian astrology used to analyze an individual&apos;s personality, potential future, and life path through the lines and shapes on their palms. Each line on the palm&mdash;such as the life line, heart line, and fate line&mdash;tells a unique story about an individual&rsquo;s journey. An experienced Indian astrologer can interpret the depth, length, and curvature of these lines to provide insight into one&rsquo;s health, emotional well-being, and life events. Palm reading also considers the shape, texture, and color of the palm, along with the mounts associated with planetary influences.
-              .col-md-4
-                img.img-fluid.rounded-start(src='/project/site/img/Plam-Reading.webp', alt='Palm Reading')
-          // Tarot Reading Card
-          .card.mb-3.shadow(data-aos='fade-right')
-            .row.g-0
-              .col-md-4
-                img.img-fluid.rounded-start(src='/project/site/img/tarrot_reading.jpg', alt='Tarot Reading')
-              .col-md-8
-                .card-body
-                  h5.card-title Tarot Reading
-                  p.card-text
-                    | Tarot reading is a powerful and intuitive practice that uses symbolic cards to tap into an individual&rsquo;s subconscious, providing guidance on present and future situations. An Indian astrologer skilled in tarot interpretation can help answer specific questions related to relationships, career, health, and personal growth. The tarot deck consists of 78 cards, each representing different aspects of life&rsquo;s journey, including major life changes, personal struggles, and hidden opportunities.
-          // Kundli Matching Card
-          .card.mb-3.shadow(data-aos='fade-left')
-            .row.g-0
-              .col-md-8
-                .card-body
-                  h5.card-title Kundli Matching
-                  p.card-text
-                    | Kundli matching, also known as Gun Milan, is an essential practice in Indian astrology, especially when it comes to marriage. It involves comparing the birth charts of two individuals to determine their compatibility for a harmonious and long-lasting relationship. The process examines the positions of planets and stars at the time of each person&rsquo;s birth to assess factors like emotional compatibility, mutual understanding, physical attraction, and overall marital harmony. In India, kundli matching is considered crucial for ensuring a happy and prosperous married life.
-              .col-md-4
-                img.img-fluid.rounded-start(src='/project/site/img/Kundli-Matching.png', alt='Kundli Matching')
+           each row in table
+              .card.mb-3.shadow(data-aos='fade-right')
+                .row.g-0
+                  .col-md-4
+                    img.img-fluid.rounded-start(src=`/project/site/img/${row['photo']}`, alt='')
+                  .col-md-8
+                    .card-body
+                      h5.card-title #{row['name']}
+                      p.card-text #{row['long_description']}
+                    | 
 include site_footer
