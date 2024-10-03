@@ -40,7 +40,7 @@ section.page-title-section.bg-img.cover-background.top-position1.secondary-overl
               .ps-lg-1-9.ps-xl-7
                 .title-three.mb-1-9.mb-md-5
                   h3.text-primary Have Question? let us talk
-                form.contact.quform(action='https://zodiac.websitelayout.net/quform/contact.php', method='post', enctype='multipart/form-data', onclick='')
+                form(action='http://localhost:5000/insert-contact', method='post')
                   .quform-elements
                     .row
                       // Begin Text input element
@@ -91,6 +91,9 @@ section.page-title-section.bg-img.cover-background.top-position1.secondary-overl
                         .quform-submit-inner
                           button.butn-style2.butn-style2.theme.border-0(type='submit')
                             span Send Message
+                        .text-bg-info 
+                          if message
+                            p #{message}
                         .quform-loading-wrap.text-start
                           span.quform-loading
                       // End Submit button
